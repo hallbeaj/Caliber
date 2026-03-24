@@ -1,0 +1,173 @@
+:root {
+  --bg: #080a11;
+  --surface: rgba(16, 21, 34, 0.7);
+  --surface-strong: rgba(23, 30, 48, 0.9);
+  --text: #f5f8ff;
+  --muted: #a8b3c9;
+  --line: rgba(155, 178, 255, 0.24);
+  --accent: #71f0ff;
+  --accent-2: #8c74ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Outfit", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1000px 550px at 80% -20%, rgba(113, 240, 255, 0.15), transparent 70%),
+    radial-gradient(900px 500px at 10% 0%, rgba(140, 116, 255, 0.15), transparent 72%),
+    var(--bg);
+}
+
+.background-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(113, 240, 255, 0.08), transparent 35%),
+    radial-gradient(circle at 20% 70%, rgba(140, 116, 255, 0.07), transparent 45%);
+  filter: blur(15px);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 18px clamp(18px, 3vw, 40px);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 20px rgba(113, 240, 255, 0.6);
+}
+
+.brand-text {
+  font-family: "Sora", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge {
+  border: 1px solid var(--line);
+  color: var(--accent);
+  background: rgba(9, 14, 25, 0.75);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.container {
+  width: min(1120px, calc(100% - 40px));
+  margin: 30px auto 45px;
+}
+
+.card {
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, var(--surface), var(--surface-strong));
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 35px 50px rgba(0, 0, 0, 0.35);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 24px;
+  padding: clamp(22px, 3.2vw, 38px);
+  align-items: center;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  font-size: clamp(2rem, 4.8vw, 3.8rem);
+}
+
+.description {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  line-height: 1.6;
+  max-width: 60ch;
+}
+
+.hero-video-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 1px rgba(113, 240, 255, 0.22), 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.hero-video,
+.panel video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #02030a;
+}
+
+.showcase-grid {
+  margin-top: 22px;
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.panel {
+  padding: 18px;
+}
+
+h2 {
+  margin: 2px 0 14px;
+  font-family: "Sora", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.featured {
+  border-color: rgba(113, 240, 255, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 40px 60px rgba(21, 146, 160, 0.2);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+}
